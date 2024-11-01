@@ -1,0 +1,371 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <title>Remind Me</title>
+  <link rel="icon" type="img/svg" href="./icons/Logo.svg">
+  <!-- Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Poppins -->
+    <!--AOS  -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- AOS -->
+</head>
+<body>
+<!-- Navbar -->
+<nav class="p-6 top-0 z-50 bg-white sticky shadow-sm">
+    <div class="flex justify-start gap-20 items-center">
+        <a class="font-semibold flex justify-start items-center" href="./index.html">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.4645 3.53553C16.4171 1.58291 19.5829 1.58291 21.5355 3.53553L32.4645 14.4645C34.4171 16.4171 34.4171 19.5829 32.4645 21.5355L21.5355 32.4645C19.5829 34.4171 16.4171 34.4171 14.4645 32.4645L3.53553 21.5355C1.58291 19.5829 1.58291 16.4171 3.53553 14.4645L14.4645 3.53553Z" fill="#D6E5FD"/>
+                <path d="M18 13.5C18.1989 13.5 18.3897 13.579 18.5303 13.7197C18.671 13.8603 18.75 14.0511 18.75 14.25V17.25H20.25C20.4489 17.25 20.6397 17.329 20.7803 17.4697C20.921 17.6103 21 17.8011 21 18C21 18.1989 20.921 18.3897 20.7803 18.5303C20.6397 18.671 20.4489 18.75 20.25 18.75H18C17.8011 18.75 17.6103 18.671 17.4697 18.5303C17.329 18.3897 17.25 18.1989 17.25 18V14.25C17.25 14.0511 17.329 13.8603 17.4697 13.7197C17.6103 13.579 17.8011 13.5 18 13.5V13.5Z" fill="#2D76F9"/>
+                <path opacity="0.5" d="M10.5 18C10.5 19.4834 10.9399 20.9334 11.764 22.1668C12.5881 23.4001 13.7594 24.3614 15.1299 24.9291C16.5003 25.4968 18.0083 25.6453 19.4632 25.3559C20.918 25.0665 22.2544 24.3522 23.3033 23.3033C24.3522 22.2544 25.0665 20.918 25.3559 19.4632C25.6453 18.0083 25.4968 16.5003 24.9291 15.1299C24.3614 13.7594 23.4001 12.5881 22.1668 11.764C20.9334 10.9399 19.4834 10.5 18 10.5C17.0151 10.5 16.0398 10.694 15.1299 11.0709C14.2199 11.4478 13.3931 12.0003 12.6967 12.6967C11.2902 14.1032 10.5 16.0109 10.5 18V18ZM17.25 14.25C17.25 14.0511 17.329 13.8603 17.4697 13.7197C17.6103 13.579 17.8011 13.5 18 13.5C18.1989 13.5 18.3897 13.579 18.5303 13.7197C18.671 13.8603 18.75 14.0511 18.75 14.25V17.25H20.25C20.4489 17.25 20.6397 17.329 20.7803 17.4697C20.921 17.6103 21 17.8011 21 18C21 18.1989 20.921 18.3897 20.7803 18.5303C20.6397 18.671 20.4489 18.75 20.25 18.75H18C17.8011 18.75 17.6103 18.671 17.4697 18.5303C17.329 18.3897 17.25 18.1989 17.25 18V14.25Z" fill="#2D76F9"/>
+            </svg>
+            Remind<span class="text-primary">me</span>
+        </a>
+        <div class="hidden md:flex items-center gap-10">
+            <a class="font-bold text-primary" href="./index.html">Home</a>
+            <a class="hover:text-primary" href="#Features">Features</a>
+            <a class="hover:text-primary" href="#About">About Us</a>
+            <button class="absolute right-10 rounded-full w-32 border border-primary min-w-44 p-2 text-primary hover:bg-secondary"><a href="#About">About App</a></button>
+        </div>
+
+        <!-- Hamburger Menu -->
+        <button id="hamburger" class=" absolute right-5 active:bg-secondary hover:bg-secondary md:hidden border border-primary p-1 rounded-md flex items-center focus:outline-none" onclick="toggleMobileMenu()">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3 6C2.73478 6 2.48043 6.10536 2.29289 6.29289C2.10536 6.48043 2 6.73478 2 7C2 7.26522 2.10536 7.51957 2.29289 7.70711C2.48043 7.89464 2.73478 8 3 8H27C27.2652 8 27.5196 7.89464 27.7071 7.70711C27.8946 7.51957 28 7.26522 28 7C28 6.73478 27.8946 6.48043 27.7071 6.29289C27.5196 6.10536 27.2652 6 27 6H3ZM2 15C2 14.7348 2.10536 14.4804 2.29289 14.2929C2.48043 14.1054 2.73478 14 3 14H27C27.2652 14 27.5196 14.1054 27.7071 14.2929C27.8946 14.4804 28 14.7348 28 15C28 15.2652 27.8946 15.5196 27.7071 15.7071C27.5196 15.8946 27.2652 16 27 16H3C2.73478 16 2.48043 15.8946 2.29289 15.7071C2.10536 15.5196 2 15.2652 2 15ZM2 23C2 22.7348 2.10536 22.4804 2.29289 22.2929C2.48043 22.1054 2.73478 22 3 22H27C27.2652 22 27.5196 22.1054 27.7071 22.2929C27.8946 22.4804 28 22.7348 28 23C28 23.2652 27.8946 23.5196 27.7071 23.7071C27.5196 23.8946 27.2652 24 27 24H3C2.73478 24 2.48043 23.8946 2.29289 23.7071C2.10536 23.5196 2 23.2652 2 23Z" fill="#2D76F9"/>
+            </svg>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden w-full md:hidden">
+        <ul class=" flex-col flex p-5 justify-around gap-10">
+            <a class="font-bold text-primary" href="./index.html">Home</a>
+            <a class="hover:text-primary" href="#Features">Features</a>
+            <a class="hover:text-primary" href="#About">About Us</a>
+            <button  class="w-full rounded-full border border-primary min-w-44 p-2 text-primary hover:bg-secondary"><a href="#About">About App</a></button>
+        </ul>
+    </div>
+</nav>
+<!-- Navbar -->
+
+
+<!-- Hero -->
+ <section id="About" class="flex justify-around">
+    <div class="flex  w-[1200px] items-center flex-wrap  sm:justify-center md:justify-center lg:justify-between 2xl:justify-between xl:justify-between ">
+        <div data-aos="fade-right"  data-aos-duration="1000" class="flex p-4 flex-col w-[450px] gap-5">
+            <h1 class="text-5xl font-semibold -tracking-tighter gap-4">Manage Schedule and Task Easy </h1>
+            <p>Create and organize schedule and task deadline become better, easy manage and certainly no longer lagging behind schedule of activities and task</p>
+            <button id="download" class="bg-primary w-[250px] text-white p-4 rounded-full hover:bg-blue-400 ">Download App</button>
+        </div>
+        <img data-aos="fade-up" data-aos-duration="1000" class="w-[450px] " src="./img/Hero Image.svg" alt="hero">
+    </div>
+</section>
+<!-- Hero -->
+
+<!-- Benefits  -->
+<section class="flex justify-around mt-[120px]">
+    <div class="p-3 flex flex-wrap gap-2 justify-around items-center">
+        <div data-aos="fade-up" data-aos-duration="1000" class="w-[300px] p-2 flex flex-col h-[200px] justify-center items-center">
+            <img class="bg-secondary p-3 rounded-full" src="./icons/uim_schedule.svg">
+            <h1 class="font-bold">Set a better deadline tasks</h1>
+            <p class="text-center">You can make your duty deadlines better and more orderly</p>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="1400"class="w-[300px] p-2 flex flex-col h-[200px] justify-center items-center">
+            <img class="bg-secondary p-3 rounded-full" src="./icons/uim_layer-group.svg">
+            <h1 class="font-bold">Set a better deadline tasks</h1>
+            <p class="text-center">You can manage the deadlines and the schedule becomes easy</p>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="2000" class="w-[300px] p-2 flex flex-col h-[200px] justify-center items-center">
+            <img class="bg-secondary p-3 rounded-full" src="./icons/ri_notification-fill.svg">
+            <h1 class="font-bold">Wouldn’t miss notifications</h1>
+            <p class="text-center">Of course you will always get the tasks and schedule notifications</p>
+        </div>
+    </div>
+</section>
+<!-- Benefits  -->
+
+<!--Schedule Features-->
+<section id="Features" class="flex justify-around mt-[120px] h-[660px]">
+    <div class="flex w-[1200px] items-center flex-wrap  sm:justify-center md:justify-center lg:justify-between 2xl:justify-between xl:justify-between ">
+        <img data-aos="fade-right" data-aos-duration="900" class="w-[550px] " src="./img/ScheduleFeatures.svg" alt="Schedule Features">
+        <div  data-aos="fade-up" data-aos-duration="900" class="w-[450px] flex flex-col gap-5">
+            <h1 class="p-3 text-4xl font-semibold -tracking-wider">Set up task and schedule with a best features</h1>
+            <p  class="p-3 -tracking-tighter">The best feature makes you better, with the latest technology to meet your needs. Of course, with such features as organizing schedules and leading assignments, it will make you easier, So get the application now !</p>
+        </div>
+    </div>
+</section>
+
+<!--Schedule  Features-->
+
+
+<!-- Notification Features -->
+<section id="Features" class=" mt-[100px] flex justify-around ">
+    <div class="flex w-[1200px] items-center flex-wrap  sm:justify-center md:justify-center lg:justify-between 2xl:justify-between xl:justify-between ">
+        <div data-aos="fade-right" data-aos-duration="1000" class="w-[450px] flex flex-col gap-5">
+            <h1 class="p-3 text-4xl font-semibold -tracking-wider">Get the highest priority application notification</h1>
+            <p class="p-3 -tracking-tighter">The best feature makes you better, with the latest technology to meet your needs. Of course, with such features as organizing schedules and leading assignments, it will make you easier, So get the application now !</p>
+        </div>
+        <img data-aos="fade-up" data-aos-duration="2000" class="w-[550px] " src="./img/NotificationFeatures.svg" alt="Schedule Features">
+    </div>
+ </section>
+<!-- Notification Features -->
+
+
+<!-- download App -->
+    <section class="mt-[50px] flex justify-center w-full p-4">
+        <div data-aos="zoom-in-up" data-aos-duration="1300" class="w-full max-w-[1240px]">
+            <!-- Mobile design (default) -->
+            <div class="md:hidden w-full aspect-square max-w-md mx-auto bg-primary rounded-3xl p-8 relative overflow-hidden">
+                <!-- Background circles -->
+                <div class="absolute top-0 right-0 w-64 h-64 rounded-full bg-primary opacity-20 translate-x-1/2 -translate-y-1/2"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-primary opacity-20 -translate-x-1/2 translate-y-1/2"></div>
+                
+                <!-- Content -->
+                <div data-aos="fade-down" class="relative h-full flex flex-col items-center justify-center text-center z-10">
+                    <h2 class="text-white text-2xl font-medium mb-auto">
+                        Download an app now and the various benefits you will get immediately
+                    </h2>
+                    
+                    <div class="flex flex-col gap-4 w-full max-w-xs mt-auto">
+                        <button class="w-full bg-white text-primary py-4 px-6 rounded-full  transition-colors duration-200 hover:bg-opacity-90">
+                            Download App
+                        </button>
+                        <button class="w-full border-2 border-white text-white py-4 px-6 rounded-full transition-colors duration-200 hover:bg-white hover:bg-opacity-10">
+                            About App
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop/Tablet design -->
+            <div class="hidden md:block relative w-full svg-container">
+                <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1240 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                    <rect width="1240" height="500" rx="50" fill="#2D76F9"/>
+                    <mask id="mask0_1_351" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1240" height="500">
+                        <rect width="1240" height="500" rx="50" fill="#2D76F9"/>
+                    </mask>
+                    <g mask="url(#mask0_1_351)">
+                        <circle cx="1137" cy="14" r="342" stroke="#2170FF" stroke-width="150"/>
+                        <circle cx="103" cy="506" r="342" stroke="#2170FF" stroke-width="150"/>
+                        <circle cx="1240" cy="500" r="164.5" stroke="#4587FF" stroke-width="75"/>
+                        <circle r="164.5" stroke="#4587FF" stroke-width="75"/>
+                    </g>
+                    
+                    <foreignObject x="0" y="0" width="1240" height="500">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="w-full h-full flex flex-col items-center justify-center text-white font-sans text-center p-4">
+                            <div class="max-w-xl px-4">
+                                <h2 class="text-xl font-medium lg:text-2xl xl:text-3xl mb-8">
+                                    Download an app now and the various benefits you will get immediately
+                                </h2>
+                                <div class="flex flex-row gap-4 justify-center">
+                                    <button class="min-w-[200px] bg-white text-primary px-6 py-3 rounded-full hover:bg-opacity-90 transition-colors duration-200">
+                                        Download App
+                                    </button>
+                                    <button class="min-w-[200px] bg-transparent text-white border-2 border-white px-6 py-3 rounded-full  hover:bg-white hover:bg-opacity-10 transition-colors duration-200">
+                                        About App
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                </svg>
+            </div>
+        </div>
+    </section>
+<!-- download App -->
+
+<!-- Testimonials -->
+<section class="flex justify-center items-center"> 
+    <div class="w-[1200px] flex md:justify-between sm:justify-center items-center flex-wrap xs:justify-center">
+        <!-- img -->
+        <img class=" w-[570px] md:block xs:hidden" src="./img/What do you think.svg" alt="Testimonial img">
+        
+        <!-- comment section -->
+        <section class="p-5 w-[450px] gap-14 h-[400px] flex flex-col justify-center">
+            <h1 class="text-3xl font-semibold">What do you think?</h1>
+
+            <!-- Testimonial Wrapper -->
+            <div class="flex">
+                <section class="w-full  flex justify-center gap-10 flex-col">
+                    <!-- Profile -->
+                    <div class="flex gap-4">
+                        <div class="w-[75px]  rounded-full">
+                            <img class="w-full object-cover rounded-full carousel-profile-img" src="./img/Profile.jpg" alt="profile">
+                        </div>
+                        <div class="flex gap-1 flex-col">
+                            <h1 class="carousel-profile-name"></h1>
+                            <p class="carousel-profile-profession"></p>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Text -->
+                    <p class="w-full carousel-profile-comment">
+                    </p>
+                </section>
+            </div>
+
+            <!-- Carousel Controls -->
+            <div class="w-full md:justify-start xs:justify-center flex gap-5">
+                <button class="carousel-prev"><img src="./icons/la_arrow-left.svg" alt="prev"></button>
+                <button class="carousel-next"><img src="./icons/la_arrow-right.svg" alt="next"></button>
+            </div>
+        </section>
+    </div>
+</section>
+<!-- Testimonials -->
+
+
+<!-- Footer -->
+<footer class="flex justify-center items-center">
+    <div class="flex flex-wrap justify-center  h-[350px] items-center">
+        <div class="w-[400px] p-5 flex flex-col justify-center items-center gap-3">
+            <a class="font-semibold flex justify-start items-center" href="./index.html">
+                <img class="w-[100px]" src="./icons/Logo.svg" >
+                Remind<span class="text-primary">me</span>
+            </a>
+            <p class="object-cover">Task deadlines and scheduling applications with various benefits and advantages</p>
+        </div>
+        <div class="w-[400px] flex justify-center items-center ">
+            <div class="w-[300px] p-5  flex flex-col justify-center items-center ">
+                <h1 class="font-semibold absolute mt-[-75px]">Sitemaps</h1>
+                <ul class="mt-[110px] flex flex-col gap-1">
+                    <li class="list-disc text-primary"> <p class="text-black">Home</p></li>
+                    <li class="list-disc text-primary "><p class="text-black">Features</p></li>
+                    <li class="list-disc text-primary "><p class="text-black">About Us</p></li>
+                </ul>
+            </div>
+
+            <div class="w-[300px] p-5  flex flex-col justify-center items-center ">
+                <h1 class="font-semibold absolute mt-[-75px]">Advantages</h1>
+                <ul class="mt-[110px] flex flex-col gap-1">
+                    <li class="list-disc text-primary font-light"> <p class="text-black">Set Task Better</p>
+                    <li class="list-disc text-primary font-light"><p class="text-black">Easy Manage</p></li>
+                    <li class="list-disc text-primary font-light"><p class="text-black">Get Notification</p></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="w-[300px] p-10  flex flex-col justify-center items-center">
+            <h1 class="font-semibold absolute mt-[-75px]">Follow Us</h1>
+            <ul class="mt-[60px] flex justify-around gap-5">
+                <li class=""> <a href="https://www.facebook.com/?locale2=id_ID&_rdr"><img src="./icons/uim_facebook-f.svg" alt="facebook"></a>
+                <li class=""><a href="https://x.com/?lang=en"><img src="./icons/uim_twitter.svg" alt="twitter"></a></li>
+                <li class=""><a href="https://www.linkedin.com/"><img src="./icons/uim_linkedin-alt.svg" alt="linkedin"></a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!-- Footer -->
+</body>
+<script src="script.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <!-- punyaku:Mohammad Arief Gunadi.-->
+
+
+
